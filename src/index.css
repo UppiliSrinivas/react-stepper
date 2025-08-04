@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+.app-container{
+  @apply p-6
+}
+
+.step-item {
+  @apply relative flex flex-col justify-center items-center w-full;
+}
+.step-item:not(:first-child):before {
+  @apply content-[''] bg-slate-200 absolute w-[calc(100%-2.5rem)] h-[3px] right-[calc(50%+1.25rem)] top-4.5  
+  transition-all duration-200;
+}
+.step {
+  @apply w-10 h-10 flex items-center justify-center z-10 relative rounded-full font-semibold text-black
+  transition-all duration-200;
+}
+.active .step {
+  @apply bg-sky-600;
+}
+.complete .step {
+  @apply bg-green-600;
+}
+.complete:not(:first-child):before,
+.active:not(:first-child):before {
+  @apply bg-green-600;
+}

@@ -1,0 +1,35 @@
+import type { ReactNode } from "react";
+import * as Icons from "lucide-react";
+type StepType = {
+    id?: number;
+    title?: string;
+    description?: string;
+    icon?: keyof typeof Icons;
+    active?: boolean;
+    finshed?:boolean;
+    error?:boolean;
+    loading?:boolean;
+    completed?: boolean;
+    children?: ReactNode
+}
+
+type StepStyleType = {
+    activeBgColor?: string;
+    activeTextColor?: string;
+    completedBgColor?: string;
+    completedTextColor?: string
+}
+
+type MultiStepperType = {
+    currentStep: number;
+    steps: StepType[];
+    handleNextStep: () => void;
+    handlePrevStep: () => void;
+    updateSteps: (newStep: number) => void;
+}
+
+type MultiStepperProviderType = {
+    children: ReactNode;
+    steppers: StepType[]
+}
+export type { StepStyleType, StepType, MultiStepperType, MultiStepperProviderType }
