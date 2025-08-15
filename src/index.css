@@ -1,9 +1,14 @@
-body{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-               Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-               sans-serif;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-h1,h2,h3,h4,h5,h6,p{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0%;
   padding: 0%;
 }
@@ -12,8 +17,8 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .stepper-header {
-  display: flex;           /* flex */
-  width: 100%;             /* w-full */
+  display: flex; /* flex */
+  /* w-full */
   justify-content: space-between; /* justify-between */
 }
 
@@ -27,7 +32,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .step-item:not(:first-child)::before {
-  content: '';
+  content: "";
   background-color: #e2e8f0; /* slate-200 */
   position: absolute;
   width: calc(100% - 2.5rem);
@@ -38,59 +43,59 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .step {
-  width: 2.5rem;               /* w-10 */
-  height: 2.5rem;              /* h-10 */
-  display: flex;               /* flex */
-  align-items: center;         /* items-center */
-  justify-content: center;     /* justify-center */
-  z-index: 10;                  /* z-10 */
-  position: relative;          /* relative */
-  border-radius: 9999px;       /* rounded-full */
-  font-weight: 600;            /* font-semibold */
-  color: black;                /* text-black */
-  transition: all 0.2s;        /* transition-all duration-200 */
+  width: 2.5rem; /* w-10 */
+  height: 2.5rem; /* h-10 */
+  display: flex; /* flex */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  z-index: 10; /* z-10 */
+  position: relative; /* relative */
+  border-radius: 9999px; /* rounded-full */
+  font-weight: 600; /* font-semibold */
+  color: black; /* text-black */
+  transition: all 0.2s; /* transition-all duration-200 */
 }
 
 .step-active {
   border: 1px solid #0284c7;
-  background-color: #0284c7;     /* bg-sky-600 */
+  background-color: #0284c7; /* bg-sky-600 */
 }
 
 .step-complete {
-  background-color: #16a34a;     /* bg-green-600 */
+  background-color: #16a34a; /* bg-green-600 */
   color: white;
 }
 
 .step-error {
-  background-color: #ef4444;     /* bg-red-500 */
+  background-color: #ef4444; /* bg-red-500 */
 }
 
 .step-finished {
-  background-color: #16a34a;     /* bg-green-500 */
+  background-color: #16a34a; /* bg-green-500 */
 }
 
 .step-active h2,
 .step-complete h2,
 .step-error span,
 .step-finished h2 {
-  color: white;                  /* text-white */
+  color: white; /* text-white */
 }
 
 .step-default {
-  border: 1px solid #d1d5db;     /* border-gray-300 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
 }
 
 .active .step {
-  background-color: #0284c7;   /* bg-sky-600 */
+  background-color: #0284c7; /* bg-sky-600 */
 }
 
 .complete .step {
-  background-color: #16a34a;   /* bg-green-600 */
+  background-color: #16a34a; /* bg-green-600 */
 }
 
 .complete:not(:first-child)::before,
 .active:not(:first-child)::before {
-  background-color: #16a34a;   /* bg-green-600 */
+  background-color: #16a34a; /* bg-green-600 */
 }
 
 .step-text {
@@ -100,51 +105,47 @@ h1,h2,h3,h4,h5,h6,p{
 
 .step-title {
   font-size: 1rem; /* text-md */
-  color: #111827;  /* text-gray-900 */
+  color: #111827; /* text-gray-900 */
   font-weight: 500; /* font-medium */
   /* mb-1 */
   margin-top: 1rem;
-  
 }
 
 .step-description {
   font-size: 0.85rem; /* text-sm */
-  color: #4B5563;      /* text-gray-600 */
-  font-weight: 300;    /* font-light */
+  color: #4b5563; /* text-gray-600 */
+  font-weight: 300; /* font-light */
   margin-top: 0.5rem;
 }
 
 .stepper-content {
-  width: 100%;              /* w-full */
-           /* p-6 */
-  display: flex;            /* flex */
-  justify-content: center;  /* justify-center */
-  align-items: center;      /* items-center */
+  /* w-full */
+  /* p-6 */
+  display: flex; /* flex */
+  justify-content: center; /* justify-center */
+  align-items: center; /* items-center */
 }
 
-
 .stepper-footer {
-  display: flex;              /* flex */
+  display: flex; /* flex */
   justify-content: space-around; /* justify-around */
-  align-items: center;        /* items-center */
-  padding: 1.5rem;            /* p-6 */
+  align-items: center; /* items-center */
+  padding: 1.5rem; /* p-6 */
   padding-block: 2rem;
 }
 
 .stepper-button {
-  padding: 0.375rem 2rem;     /* py-1.5 px-8 */
-  font-size: 1rem;            /* text-md */
-  border-radius: 0.375rem;    /* rounded-md */
-  border: 1px solid #9ca3af;  /* border-gray-400 */
+  padding: 0.375rem 2rem; /* py-1.5 px-8 */
+  font-size: 1rem; /* text-md */
+  border-radius: 0.375rem; /* rounded-md */
+  border: 1px solid #9ca3af; /* border-gray-400 */
   background-color: transparent;
   color: inherit;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 .stepper-button-fill {
-  border-color: #3b82f6;      /* border-blue-500 */
-  background-color: #3b82f6;  /* bg-blue-500 */
-  color: white;               /* text-white */
+  border-color: #0284c7; /* border-blue-500 */
+  background-color: #0284c7; /* bg-blue-500 */
+  color: white; /* text-white */
 }
-
-

@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '../src/index.css'
-import { MultiStepper } from '../src/MultiStepper'
+import { MultiStepper } from 'reactjs-multi-stepper'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -11,8 +10,7 @@ createRoot(document.getElementById('root')!).render(
         title:"Step one",
         description:"Step one description",
         children:<div style={{
-          width:"100%",
-          height:"30vh",
+          padding:"10vh",
           background:"blue",
           display:"flex",
           justifyContent:"center",
@@ -26,7 +24,6 @@ createRoot(document.getElementById('root')!).render(
         title:"Step Two",
         description:"Step Two description",
         children:<div style={{
-          width:"100%",
           height:"30vh",
           background:"red",
           display:"flex",
@@ -41,7 +38,6 @@ createRoot(document.getElementById('root')!).render(
         title:"Step Three",
         description:"Step Three description",
         children:<div style={{
-          width:"100%",
           height:"30vh",
           background:"orange",
           display:"flex",
