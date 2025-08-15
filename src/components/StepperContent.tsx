@@ -5,7 +5,7 @@ import { useMultiStepper } from '../hooks';
 export const StepperContent: React.FC = () => {
   const { steps, currentStep } = useMultiStepper()
   return (
-    <div className='w-full p-6 flex justify-center items-center'>
+    <div className='stepper-content'>
       {
         steps[currentStep] && 
         steps[currentStep].children && 

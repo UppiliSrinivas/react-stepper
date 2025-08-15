@@ -1,14 +1,13 @@
 import type { ReactNode } from "react";
-import * as Icons from "lucide-react";
 type StepType = {
     id?: number;
     title?: string;
     description?: string;
-    icon?: keyof typeof Icons;
+    icon?: ReactNode;
     active?: boolean;
-    finshed?:boolean;
-    error?:boolean;
-    loading?:boolean;
+    finshed?: boolean;
+    error?: boolean;
+    loading?: boolean;
     completed?: boolean;
     children?: ReactNode
 }
@@ -32,4 +31,4 @@ type MultiStepperProviderType = {
     children: ReactNode;
     steppers: StepType[]
 }
-export type { StepStyleType, StepType, MultiStepperType, MultiStepperProviderType }
+export type { MultiStepperProviderType, MultiStepperType, StepStyleType, StepType };

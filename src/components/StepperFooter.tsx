@@ -1,30 +1,45 @@
 import React, { useMemo } from 'react';
 import { useMultiStepper } from '../hooks';
 
-export const StepperFooter: React.FC = () => {
+type StepperFooterProps = {
+  onClickNext: () => void
+}
+
+export const StepperFooter: React.FC<StepperFooterProps> = ({ onClickNext }) => {
   const { handleNextStep, handlePrevStep, currentStep, steps } = useMultiStepper();
-  const isFinshed = currentStep === steps.length - 1
+  const isFinished = currentStep === steps.length - 1;
+
+  const handleNext = () => {
+
+    if (!steps[currentStep].completed) {
+      handleNextStep()
+      onClickNext()
+    }
+
+  }
 
   const buttonClass = useMemo(() => ({
-    button: ` px-8 py-1.5 text-md rounded-md border border-gray-400`,
-    fill: ` border-blue-500 bg-blue-500 text-white`
-  }), [])
+    button: 'stepper-button',
+    fill: 'stepper-button-fill'
+  }), []);
 
   return (
-    <div className='w-full flex justify-around items-center p-6'>
-      {
-        currentStep > 0 ?
-          <button type="button"
-            className={buttonClass.button}
-            onClick={handlePrevStep} >Prev</button>
-          : <div />
-      }
-      <button type="button"
-        className={`${isFinshed ?
-          buttonClass.button + buttonClass.fill :
-          buttonClass.button} cursor-pointer`}
-        onClick={handleNextStep}>
-        {isFinshed ? `Finish` : `Next`}
+    <div className="stepper-footer">
+      <button
+        type="button"
+        className={buttonClass.button}
+        onClick={handlePrevStep}
+        disabled={currentStep < 0}
+      >
+        Prev
+      </button>
+
+      <button
+        type="button"
+        className={`${isFinished ? `${buttonClass.button} ${buttonClass.fill}` : buttonClass.button}`}
+        onClick={handleNext}
+      >
+        {isFinished ? 'Finish' : 'Next'}
       </button>
     </div>
   );

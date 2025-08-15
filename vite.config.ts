@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import tailwindcss from '@tailwindcss/vite'
+// import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts';
 import * as path from "path";
+import {dependencies} from './package.json'
+import {libInjectCss} from 'vite-plugin-lib-inject-css';
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),tailwindcss(),dts({
+  plugins: [react(),libInjectCss(),dts({
       insertTypesEntry: true,
     }),],
   resolve: {
@@ -14,19 +16,22 @@ export default defineConfig({
     ],
   },
   build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.tsx'),
-      name: 'MultiStepper',
-      fileName: (format) => `multi-stepper.${format}.js`,
-    },
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
+      lib: {
+        entry: path.resolve(__dirname, "src/index.ts"),
+        name: "multi-stepper",
+        fileName: (format) => `multi-stepper.${format}.js`,
+      },
+      rollupOptions: {
+        external: Object.keys(dependencies),
+        output: {
+          globals: {
+            react: "React",
+            "react-dom": "ReactDOM",
+          },
         },
       },
+      cssCodeSplit: false,
+      sourcemap: true,
+      emptyOutDir: true,
     },
-  },
 })

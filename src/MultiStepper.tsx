@@ -6,18 +6,20 @@ import { StepperFooter } from './components/StepperFooter';
 import { StepperContent } from './components/StepperContent';
 
 type StepperProps = {
-  steps?: StepType[];
+  steps: StepType[];
+  onClickNext:()=> void
 }
 
 export const MultiStepper: React.FC<StepperProps> = ({
   steps,
+  onClickNext
 }) => {
   if (!steps) return <></>
   return (
     <MultiStepperProvider steppers={steps}>
       <StepperHeader />
       <StepperContent />
-      <StepperFooter />
+      <StepperFooter onClickNext={onClickNext}/>
     </MultiStepperProvider>
   );
 };

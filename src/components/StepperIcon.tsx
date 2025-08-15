@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { useMultiStepper } from '../hooks';
 import type { StepType } from '../types';
-import Icon from './icon';
 import Spinner from './spinner';
 
 type StepItemType = {
@@ -15,37 +14,36 @@ export const Step: React.FC<StepItemType> = ({
   const { steps } = useMultiStepper()
   if (!steps.length) return <Fragment />
 
-  if (step.loading) return <div className='step step-active'>
+  if (step.loading) return <div className='step step-loading'>
     <Spinner />
   </div>
 
-  if (step.error) return <div className='step bg-red-500'>
-    <Icon name={"X"} className='text-white' />
+  if (step.error) return <div className='step step-error'>
+    {/* <Icon name={"X"} className='text-white' /> */}
+    <span className='text-white'>&#x2717;</span> 
   </div>
 
-  if (step.completed) return <div className='step bg-green-500'>
-    <Icon name={"Check"} className='text-white' />
+  if (step.completed) return <div className='step step-complete'>
+    {/* <Icon name={"Check"} className='text-white' /> */}
+    <span className='text-white'>&#x2713;</span> 
   </div>
 
-  if (step.finshed) return <div className='step bg-green-500'>
-    <Icon name={"Check"} className='text-white' />
+  if (step.finshed) return <div className='step step-complete'>
+    {/* <Icon name={"Check"} className='text-white' /> */}
+    {step.icon}
   </div>
 
-  if (step.active) return <div className='step bg-blue-500'>
+  if (step.active) return <div className='step step-active'>
     {
-      step.icon ?
-        <Icon name={step.icon} className='text-white' />
-        : <h2 className='text-white'>{index}</h2>
+      step.icon ??
+      <h2 className='text-white'>{index}</h2>
     }
-    
+
   </div>
 
   return (
-    <div className={`step border border-gray-300`}>
-      {
-        step.icon ? <Icon name={step.icon} className={`step-icon`} />
-          : <h2>{index}</h2>
-      }
+    <div className={`step step-default`}>
+      {step.icon ?? <h2>{index}</h2>}
     </div>
   );
 };

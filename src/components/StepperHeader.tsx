@@ -8,8 +8,8 @@ export const StepperHeader: React.FC = () => {
 
   if (!steps.length) return <Fragment />
   return (
-    <div className='app-container w-full'>
-      <ol className='flex w-full justify-between'>
+    <div className='app-container'>
+      <ol className='stepper-header'>
         {
           steps.map((step, i) => (
             <div
@@ -20,9 +20,9 @@ export const StepperHeader: React.FC = () => {
 
               <Step index={i + 1} step={step} />
 
-              <div className='text-center mt-4'>
-                {step.title && <h3 className='text-md text-gray-900 font-medium mb-1'>{step.title}</h3>}
-                {step.description && <h3 className='text-sm text-gray-600 font-light'>{step.description}</h3>}
+              <div className="step-text">
+                {step.title && <h3 className="step-title">{step.title}</h3>}
+                {step.description && <h3 className="step-description">{step.description}</h3>}
               </div>
 
             </div>
