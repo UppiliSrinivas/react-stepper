@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { MultiStepper } from 'reactjs-multi-stepper'
+// import { MultiStepper } from 'reactjs-multi-stepper'
+import { MultiStepper } from '../src/MultiStepper'
+import "../src/index.css"
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

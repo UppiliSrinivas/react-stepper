@@ -149,3 +149,28 @@ p {
   background-color: #0284c7; /* bg-blue-500 */
   color: white; /* text-white */
 }
+
+
+:root {
+  --spinner-size: 1.5rem;
+  --spinner-thickness: 3px;
+  --spinner-color: #3b82f6;   /* blue */
+  --spinner-track: #e5e7eb;    /* light gray */
+  --spinner-speed: 0.8s;
+}
+
+.spinner {
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  border-radius: 50%;
+  border: var(--spinner-thickness) solid var(--spinner-track);
+  border-top-color: var(--spinner-color);
+  animation: spin var(--spinner-speed) linear infinite;
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; border-top-color: var(--spinner-track); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

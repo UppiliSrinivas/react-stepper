@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { useMultiStepper } from '../hooks';
-import { Step } from './StepperIcon';
+import { Step } from './StepItem';
 
 
 export const StepperHeader: React.FC = () => {
