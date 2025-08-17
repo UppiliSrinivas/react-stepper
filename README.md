@@ -5,7 +5,7 @@ It allows you to create step-based workflows such as onboarding, multi-step form
 
 ## 🎬 Demo
 
-![React Multi Stepper Demo](./src/assets/react-multi-stepper-demo.gif)
+![React Multi Stepper Demo](https://github.com/UppiliSrinivas/react-stepper/blob/multi-stepper/src/assets/react-multi-stepper-demo.gif)
 
 ---
 
