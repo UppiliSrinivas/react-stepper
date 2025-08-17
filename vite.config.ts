@@ -10,6 +10,11 @@ export default defineConfig({
   plugins: [react(),libInjectCss(),dts({
       insertTypesEntry: true,
     }),],
+   test: {
+    globals: true,           // Use describe, it, expect without imports
+    environment: 'jsdom',    // Use jsdom for DOM APIs
+    setupFiles: './src/setupTests.ts',
+  }, 
   resolve: {
     alias: [
       { find: "@", replacement: path.resolve(__dirname, "./src") },
@@ -35,4 +40,5 @@ export default defineConfig({
       emptyOutDir: true,
        minify: 'esbuild'
     },
+    
 })

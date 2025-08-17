@@ -6,7 +6,7 @@ import { StepperFooter } from './components/StepperFooter';
 import { StepperContent } from './components/StepperContent';
 
 type StepperProps = {
-  steps: StepType[];
+  steps?: StepType[];
   onClickNext:()=> void
 }
 
