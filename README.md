@@ -3,6 +3,10 @@
 A lightweight, customizable, and reusable multi-stepper component for React.  
 It allows you to create step-based workflows such as onboarding, multi-step forms, or guided processes with ease.
 
+## 🎬 Demo
+
+![React Multi Stepper Demo](./src/assets/react-multi-stepper-demo.gif)
+
 ---
 
 ## 🚀 Features

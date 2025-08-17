@@ -191,6 +191,9 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 1rem;
+  width: 50%;
+  margin-block: 2rem;
 }
 
 .test-step h3{
