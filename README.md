@@ -1,69 +1,60 @@
-# React + TypeScript + Vite
+# React Multi Stepper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, customizable, and reusable multi-stepper component for React.  
+It allows you to create step-based workflows such as onboarding, multi-step forms, or guided processes with ease.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ Easy to use and integrate into any React project  
+- 🎨 Fully customizable step styles (active, completed)  
+- ⚡ Built with **TypeScript** for type safety  
+- 🧩 Includes context + hooks for flexible state management  
+- 🧪 Tested with **Vitest** + **React Testing Library**  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install react-multi-stepper
+# or
+yarn add react-multi-stepper
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔨 Usage
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```javascript
+import React from "react";
+import { MultiStepper } from "react-multi-stepper";
+
+const steps = [
+  { title: "Step 1", description: "Personal Info", active: true, completed: false },
+  { title: "Step 2", description: "Address Details", active: false, completed: false },
+  { title: "Step 3", description: "Review", active: false, completed: false },
+];
+
+export default function App() {
+  const handleNext = (currentStep:number) => {
+    console.log("Next step clicked",currentStep);
+  };
+
+  return (
+    <MultiStepper steps={steps} onClickNext={handleNext} />
+  );
+}
 ```
+
+---
+
+## 🧩 API Reference
+
+### MultiStepper Props
+
+| Prop          | Type         | Required | Description                                                    |
+| ------------- | ------------ | -------- | -------------------------------------------------------------- |
+| `steps`       | `StepType[]` | ✅        | Array of steps (`title`, `description`, `active`, `completed`) |
+| `onClickNext` | `(currentStep:number) => void` | ✅        | Callback triggered when the "Next" button is clicked           |

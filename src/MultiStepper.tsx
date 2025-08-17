@@ -7,7 +7,7 @@ import { StepperContent } from './components/StepperContent';
 
 type StepperProps = {
   steps?: StepType[];
-  onClickNext:()=> void
+  onClickNext:(currentStep:number)=> void
 }
 
 export const MultiStepper: React.FC<StepperProps> = ({

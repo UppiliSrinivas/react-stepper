@@ -6,7 +6,7 @@ import "../src/index.css"
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MultiStepper onClickNext={() => console.log("On Click Next")} steps={[
+    <MultiStepper onClickNext={(step:number) => console.log("On Click Next",step)} steps={[
       {
         id: 1,
         title: "Step one",

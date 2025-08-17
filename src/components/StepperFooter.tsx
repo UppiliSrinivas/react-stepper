@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useMultiStepper } from '../hooks';
 
 type StepperFooterProps = {
-  onClickNext: () => void
+  onClickNext: (currentStep:number) => void
 }
 
 export const StepperFooter: React.FC<StepperFooterProps> = ({ onClickNext }) => {
@@ -13,7 +13,7 @@ export const StepperFooter: React.FC<StepperFooterProps> = ({ onClickNext }) => 
 
     if (!steps[currentStep].completed) {
       handleNextStep()
-      onClickNext()
+      onClickNext(currentStep+1)
     }
 
   }
