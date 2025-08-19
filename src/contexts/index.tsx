@@ -8,12 +8,12 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
     const [steps, setSteps] = useState<StepType[]>([])
 
     useEffect(() => {
-        if(steppers.length){
+        if (steppers.length) {
             const temp = [...steppers]
             temp[0].active = true
             setSteps(temp)
         }
-    }, [steppers.length])
+    }, [steppers, steppers.length])
 
     const updateSteps = useCallback((newStep: number) => {
         setSteps((prev) => {
@@ -46,7 +46,7 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
     }, [currentStep])
 
     const handleNextStep = useCallback(() => {
-        if (currentStep < steps.length -1) updateSteps(currentStep + 1)
+        if (currentStep < steps.length - 1) updateSteps(currentStep + 1)
         else setSteps((prev) => {
             const updated = [...prev]
             updated[currentStep] = { ...updated[currentStep], completed: true }
@@ -57,8 +57,35 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
 
 
     const handlePrevStep = useCallback(() => {
-       if (currentStep > 0) updateSteps(currentStep-1)
+        if (currentStep > 0) updateSteps(currentStep - 1)
     }, [currentStep, updateSteps])
+
+
+    const setStepStatus = useCallback(
+        (status: "error" | "loading" | "active" | "completed") => {
+            setSteps((prev) => {
+                const updated = [...prev];
+                if (updated[currentStep]) {
+                    // reset all flags to false first
+                    updated[currentStep] = {
+                        ...updated[currentStep],
+                        error: false,
+                        loading: false,
+                        active: false,
+                        completed: false,
+                    };
+
+                    // now set the chosen status to true
+                    updated[currentStep][status] = true;
+                }
+                return updated;
+            });
+        },
+        [currentStep]
+    );
+
+
+
 
     // ⚡️ Memoize the entire context value
     const contextValue = useMemo(
@@ -68,8 +95,9 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
             handleNextStep,
             handlePrevStep,
             updateSteps,
+            setStepStatus
         }),
-        [currentStep, steps, handleNextStep, handlePrevStep, updateSteps]
+        [currentStep, steps, handleNextStep, handlePrevStep, updateSteps, setStepStatus]
     );
 
     return <MultiStepperContext.Provider value={contextValue}>

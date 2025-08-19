@@ -1,25 +1,20 @@
-import React from 'react';
-import type { StepType } from './types';
-import { MultiStepperProvider } from './contexts';
-import { StepperHeader } from './components/StepperHeader';
-import { StepperFooter } from './components/StepperFooter';
+import React, { Fragment } from 'react';
 import { StepperContent } from './components/StepperContent';
+import { StepperFooter } from './components/StepperFooter';
+import { StepperHeader } from './components/StepperHeader';
 
 type StepperProps = {
-  steps?: StepType[];
-  onClickNext:(currentStep:number)=> void
+  onClickNext: () => void
 }
 
 export const MultiStepper: React.FC<StepperProps> = ({
-  steps,
   onClickNext
 }) => {
-  if (!steps) return <></>
   return (
-    <MultiStepperProvider steppers={steps}>
+    <Fragment>
       <StepperHeader />
       <StepperContent />
-      <StepperFooter onClickNext={onClickNext}/>
-    </MultiStepperProvider>
+      <StepperFooter onClickNext={onClickNext} />
+    </Fragment>
   );
 };

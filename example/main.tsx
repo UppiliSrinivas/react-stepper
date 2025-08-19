@@ -1,12 +1,38 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import { MultiStepper } from 'reactjs-multi-stepper'
 import { MultiStepper } from '../src/MultiStepper'
+import { MultiStepperProvider } from '../src/contexts'
+import { useMultiStepper } from '../src/hooks'
 import "../src/index.css"
+
+export function ReactMultiStepper() {
+
+  const { handleNextStep, setStepStatus } = useMultiStepper()
+
+  const validateStepContent = () => {
+    setStepStatus("loading")
+
+    setTimeout(() => {
+      setStepStatus("error")
+    }, 1000);
+
+    setTimeout(() => {
+      setStepStatus("completed")
+      handleNextStep()
+    }, 2000);
+    // we can update step status by using setStepStatus function
+    // setStepStatus("error" | "loading" | "active" | "completed")
+
+    // if current step content is valid goto next step
+
+    // else show error on current step
+  }
+  return <MultiStepper onClickNext={validateStepContent} />
+}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MultiStepper onClickNext={(step:number) => console.log("On Click Next",step)} steps={[
+    <MultiStepperProvider steppers={[
       {
         id: 1,
         title: "Step one",
@@ -37,6 +63,8 @@ createRoot(document.getElementById('root')!).render(
           <h3>Step Three Content</h3>
         </div>
       }
-    ]} />
+    ]}>
+      <ReactMultiStepper />
+    </MultiStepperProvider>
   </StrictMode>,
 )

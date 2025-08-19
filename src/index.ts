@@ -1,4 +1,5 @@
 import "./index.css";
+export { MultiStepperProvider } from "./contexts/index";
 export { MultiStepper } from "./MultiStepper";
 export type {
   MultiStepperProviderType,
@@ -6,3 +7,4 @@ export type {
   StepStyleType,
   StepType,
 } from "./types/index";
+export { useMultiStepper } from "./hooks/index";

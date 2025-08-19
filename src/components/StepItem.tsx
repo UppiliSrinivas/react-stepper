@@ -13,7 +13,7 @@ export const Step: React.FC<StepItemType> = ({
   const { steps } = useMultiStepper()
   if (!steps.length) return <Fragment />
 
-  if (step.loading) return <div className='step step-loading'>
+  if (step.loading) return <div className='step step-active'>
     <div className="spinner" role="status" aria-label="Loading"></div>
   </div>
 
