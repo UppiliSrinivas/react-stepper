@@ -3,7 +3,7 @@
   "main": "./dist/multi-stepper.umd.js",
   "module": "./dist/multi-stepper.es.js",
   "types": "./dist/index.d.ts",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "type": "module",
   "repository": {
     "url": "https://github.com/UppiliSrinivas/react-stepper/tree/multi-stepper"
