@@ -13,10 +13,22 @@ type StepType = {
 }
 
 type StepStyleType = {
-    activeBgColor?: string;
+    textColor?: string;
     activeTextColor?: string;
+    bgColor?: string;
+    activeBgColor?: string;
     completedBgColor?: string;
-    completedTextColor?: string
+    completedTextColor?: string;
+    errorBgColor?: string;
+    errorTextColor?: string;
+    loadingBgColor?: string;
+}
+
+type OptionsType = {
+    completedIcon?: ReactNode;
+    activeIcon?: ReactNode;
+    errorIcon?: ReactNode;
+    loadingIcon?: ReactNode;
 }
 
 type MultiStepperType = {
@@ -26,10 +38,15 @@ type MultiStepperType = {
     handlePrevStep: () => void;
     updateSteps: (newStep: number) => void;
     setStepStatus: (status: "error" | "loading" | "active" | "completed") => void;
+    // styles?: StepStyleType;
+    options?: OptionsType;
 }
 
 type MultiStepperProviderType = {
     children: ReactNode;
-    steppers: StepType[]
+    steppers: StepType[];
+    // styles?: StepStyleType;
+    options?: OptionsType;
 }
+
 export type { MultiStepperProviderType, MultiStepperType, StepStyleType, StepType };

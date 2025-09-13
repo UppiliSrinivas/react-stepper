@@ -10,7 +10,7 @@ type StepItemType = {
 export const Step: React.FC<StepItemType> = ({
   step, index
 }) => {
-  const { steps } = useMultiStepper()
+  const { steps, options } = useMultiStepper()
   if (!steps.length) return <Fragment />
 
   if (step.loading) return <div className='step step-active'>
@@ -19,15 +19,15 @@ export const Step: React.FC<StepItemType> = ({
 
   if (step.error) return <div className='step step-error'>
     {
-      step.icon ??
-      <span className='text-white'>&#x2717;</span>
+      step.icon ? step.icon : options?.errorIcon ??
+        <span className='text-white'>&#x2717;</span>
     }
   </div>
 
   if (step.completed) return <div className='step step-complete'>
     {
-      step.icon ??
-      <span className='text-white'>&#x2713;</span>
+      step.icon ? step.icon : options?.completedIcon ??
+        <span className='text-white'>&#x2713;</span>
     }
   </div>
 
@@ -37,8 +37,8 @@ export const Step: React.FC<StepItemType> = ({
 
   if (step.active) return <div className='step step-active'>
     {
-      step.icon ??
-      <h2 className='text-white'>{index}</h2>
+      step.icon ? step.icon : options?.activeIcon ??
+        <h2 className='text-white'>{index}</h2>
     }
   </div>
 

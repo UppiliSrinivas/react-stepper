@@ -63,7 +63,8 @@ createRoot(document.getElementById('root')!).render(
           <h3>Step Three Content</h3>
         </div>
       }
-    ]}>
+    ]}
+    >
       <ReactMultiStepper />
     </MultiStepperProvider>
   </StrictMode>,

@@ -165,6 +165,7 @@ const steppers = [
 | ------------- | ------------ | -------- | -------------------------------------------------------------- |
 | `steppers` | `StepperType[]` | ✅ | Array of step configurations |
 | `children` | `ReactNode` | ✅ | Child components that will have access to stepper context |
+| `options`   | `OptionsType`     | (Optional) Custom icons for step statuses   |
 
 ### StepperType Interface
 
@@ -174,6 +175,17 @@ const steppers = [
 | `title` | `string` | ✅ | Step title displayed in the stepper |
 | `description` | `string` | ✅ | Step description or subtitle |
 | `children` | `ReactNode` | ✅ | Content to render for this step |
+
+
+### OptionsType
+
+| Property       | Type       | Required | Description                                 |
+| -------------- | ---------- | -------- | ------------------------------------------- |
+| `completedIcon`| ReactNode  | No       | Icon to display for completed steps         |
+| `activeIcon`   | ReactNode  | No       | Icon to display for the active step         |
+| `errorIcon`    | ReactNode  | No       | Icon to display for steps in error state    |
+| `loadingIcon`  | ReactNode  | No       | Icon to display for steps in loading state  |
+
 
 ### MultiStepper Props
 

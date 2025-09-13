@@ -8,7 +8,7 @@ type StepperProps = {
 }
 
 export const MultiStepper: React.FC<StepperProps> = ({
-  onClickNext
+  onClickNext,
 }) => {
   return (
     <Fragment>

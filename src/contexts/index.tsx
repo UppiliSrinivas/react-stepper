@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { MultiStepperProviderType, StepType } from '../types';
 import { MultiStepperContext } from "../hooks";
 
-export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ children, steppers }) => {
+export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ children, steppers, options }) => {
 
     const [currentStep, setCurrentStep] = useState(0)
     const [steps, setSteps] = useState<StepType[]>([])
@@ -95,9 +95,11 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
             handleNextStep,
             handlePrevStep,
             updateSteps,
-            setStepStatus
+            setStepStatus,
+            // styles,
+            options
         }),
-        [currentStep, steps, handleNextStep, handlePrevStep, updateSteps, setStepStatus]
+        [currentStep, steps, handleNextStep, handlePrevStep, updateSteps, setStepStatus, options]
     );
 
     return <MultiStepperContext.Provider value={contextValue}>
