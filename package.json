@@ -9,7 +9,10 @@
     "url": "https://github.com/UppiliSrinivas/react-stepper/tree/multi-stepper"
   },
   "files": [
-    "dist"
+    "dist",
+    "assets",
+    "README.md",
+    "LICENSE"
   ],
   "exports": {
     ".": {
