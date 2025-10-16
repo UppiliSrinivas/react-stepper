@@ -3,7 +3,9 @@ name: Publish to npm
 on:
   push:
     tags:
-      - 'v*' # Publishes only on version tags (e.g., v1.2.5)
+      - 'v1.2.6' # Publishes only on version tags (e.g., v1.2.5)
+    branches:
+      - 'main' # All branches
 
 jobs:
   publish:
