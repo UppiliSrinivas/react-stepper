@@ -62,15 +62,13 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
 
 
     const setStepStatus = useCallback(
-        (status: "error" | "loading" | "active" | "completed") => {
+        (status: "active" | "completed") => {
             setSteps((prev) => {
                 const updated = [...prev];
                 if (updated[currentStep]) {
                     // reset all flags to false first
                     updated[currentStep] = {
                         ...updated[currentStep],
-                        error: false,
-                        loading: false,
                         active: false,
                         completed: false,
                     };

@@ -37,7 +37,7 @@ type MultiStepperType = {
     handleNextStep: () => void;
     handlePrevStep: () => void;
     updateSteps: (newStep: number) => void;
-    setStepStatus: (status: "error" | "loading" | "active" | "completed") => void;
+    setStepStatus: (status: "active" | "completed") => void;
     // styles?: StepStyleType;
     options?: OptionsType;
 }

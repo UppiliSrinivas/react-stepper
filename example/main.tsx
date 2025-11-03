@@ -10,22 +10,8 @@ export function ReactMultiStepper() {
   const { handleNextStep, setStepStatus } = useMultiStepper()
 
   const validateStepContent = () => {
-    setStepStatus("loading")
-
-    setTimeout(() => {
-      setStepStatus("error")
-    }, 1000);
-
-    setTimeout(() => {
-      setStepStatus("completed")
-      handleNextStep()
-    }, 2000);
-    // we can update step status by using setStepStatus function
-    // setStepStatus("error" | "loading" | "active" | "completed")
-
-    // if current step content is valid goto next step
-
-    // else show error on current step
+    setStepStatus("completed")
+    handleNextStep()
   }
   return <MultiStepper onClickNext={validateStepContent} />
 }

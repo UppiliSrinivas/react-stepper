@@ -110,11 +110,6 @@ p {
   color: var(--color-white);
 }
 
-.step-error {
-  background-color: var(--color-error);
-  color: var(--color-white);
-}
-
 .step-finished {
   background-color: var(--color-success);
   color: var(--color-white);
@@ -126,10 +121,6 @@ p {
 
 .complete:not(:last-child)::after {
   background-color: var(--color-success);
-}
-
-.error:not(:last-child)::after {
-  background-color: var(--color-error);
 }
 
 /* Step Titles & Text */
@@ -177,29 +168,6 @@ p {
   border-color: var(--color-primary);
   background-color: var(--color-primary);
   color: var(--color-white);
-}
-
-/* Spinner */
-.spinner {
-  width: var(--spinner-size);
-  height: var(--spinner-size);
-  border-radius: 50%;
-  border: var(--spinner-thickness) solid var(--spinner-track);
-  border-top-color: var(--spinner-color);
-  animation: spin var(--spinner-speed) linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .spinner {
-    animation: none;
-    border-top-color: var(--spinner-track);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .test-step {
