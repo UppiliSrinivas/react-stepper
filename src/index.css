@@ -50,7 +50,8 @@ p {
 
 /* App Container */
 .app-container {
-  padding: var(--spacing-lg);
+  padding-block: var(--spacing-lg);
+  width: 100%;
 }
 
 /* Stepper Header */
@@ -78,7 +79,6 @@ p {
   left: calc(50% + (var(--step-size) / 2));
   top: calc(var(--step-size) / 2 - 0.125rem);
   transition: all 0.2s;
-  /* border: 2px solid blue; */
 }
 
 /* Step Circle */

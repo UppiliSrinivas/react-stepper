@@ -30,6 +30,9 @@ export const StepperFooter: React.FC<StepperFooterProps> = ({ onClickNext }) => 
         className={buttonClass.button}
         onClick={handlePrevStep}
         disabled={currentStep < 0}
+        style={{
+          cursor: currentStep <= 0 ? 'not-allowed' : 'pointer'
+        }}
       >
         Prev
       </button>
