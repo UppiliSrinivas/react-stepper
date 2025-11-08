@@ -12,12 +12,9 @@ It allows you to create step-based workflows such as onboarding, multi-step form
 ## 🚀 Features
 
 - ✅ Easy to use and integrate into any React project  
-- 🎨 Fully customizable step styles (active, completed, loading, error)  
+- 🎨 Fully customizable step styles (active, completed)  
 - ⚡ Built with **TypeScript** for type safety  
 - 🧩 Context-based state management with hooks  
-- 🔄 Built-in step validation and status management  
-- 🎯 Support for async operations with loading states  
-- ❌ Error handling for failed step validations  
 - 🧪 Tested with **Vitest** + **React Testing Library**  
 
 ---
@@ -75,19 +72,10 @@ function MyMultiStepper() {
   const { handleNextStep, setStepStatus } = useMultiStepper();
 
   const validateAndProceed = async () => {
-    // Set loading state
-    setStepStatus("loading");
-
     try {
-      // Simulate async validation
-      await validateCurrentStep();
-      
-      // Mark as completed and move to next
       setStepStatus("completed");
       handleNextStep();
     } catch (error) {
-      // Show error state
-      setStepStatus("error");
     }
   };
 
@@ -95,44 +83,6 @@ function MyMultiStepper() {
 }
 ```
 
----
-
-## 🔧 Advanced Usage
-
-### Step Validation with Custom Logic
-
-```javascript
-function ReactMultiStepper() {
-  const { handleNextStep, setStepStatus, currentStep } = useMultiStepper();
-
-  const validateStepContent = async () => {
-    setStepStatus("loading");
-
-    try {
-      // Custom validation based on current step
-      switch (currentStep) {
-        case 1:
-          await validatePersonalInfo();
-          break;
-        case 2:
-          await validateAddress();
-          break;
-        case 3:
-          await submitForm();
-          break;
-      }
-
-      setStepStatus("completed");
-      handleNextStep();
-    } catch (error) {
-      setStepStatus("error");
-      console.error("Step validation failed:", error);
-    }
-  };
-
-  return <MultiStepper onClickNext={validateStepContent} />;
-}
-```
 
 ### Custom Step Content
 
@@ -183,8 +133,6 @@ const steppers = [
 | -------------- | ---------- | -------- | ------------------------------------------- |
 | `completedIcon`| ReactNode  | No       | Icon to display for completed steps         |
 | `activeIcon`   | ReactNode  | No       | Icon to display for the active step         |
-| `errorIcon`    | ReactNode  | No       | Icon to display for steps in error state    |
-| `loadingIcon`  | ReactNode  | No       | Icon to display for steps in loading state  |
 
 
 ### MultiStepper Props
@@ -207,8 +155,6 @@ const steppers = [
 | Status | Description |
 | ------------- | -------------------------------------------------------------- |
 | `"active"` | Step is currently active and ready for user interaction |
-| `"loading"` | Step is processing/validating (shows loading indicator) |
 | `"completed"` | Step has been successfully completed |
-| `"error"` | Step has validation errors or failed processing |
 
 ---
