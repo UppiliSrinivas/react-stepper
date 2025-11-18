@@ -15,7 +15,7 @@ It allows you to create step-based workflows such as onboarding, multi-step form
 - 🎨 Fully customizable step styles (active, completed)  
 - ⚡ Built with **TypeScript** for type safety  
 - 🧩 Context-based state management with hooks  
-- 🧪 Tested with **Vitest** + **React Testing Library**  
+- 🧪 Tested with **Vitest** + **React Testing Library** (83% coverage)  
 
 ---
 
