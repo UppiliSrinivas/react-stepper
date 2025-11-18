@@ -37,29 +37,44 @@ yarn add react-multi-stepper
 import React from "react";
 import { MultiStepperProvider, MultiStepper, useMultiStepper } from "react-multi-stepper";
 
+
+
 function App() {
   return (
     <MultiStepperProvider steppers={[
       {
         id: 1,
-        title: "Personal Info",
-        description: "Enter your personal details",
-        children: <PersonalInfoForm />
+        title: "Step one",
+        description: "Step one description",
+        children: <div className='test-step' style={{
+          backgroundColor: "#0000FF90",
+        }}>
+          <h3>Step One Content</h3>
+        </div>
       },
       {
         id: 2,
-        title: "Address",
-        description: "Enter your address details",
-        children: <AddressForm />
+        title: "Step Two",
+        description: "Step Two description",
+        children: <div className='test-step' style={{
+          backgroundColor: "#FF000090",
+        }}>
+          <h3>Step Two Content</h3>
+        </div>
       },
       {
         id: 3,
-        title: "Review",
-        description: "Review and confirm",
-        children: <ReviewStep />
+        title: "Step Three",
+        description: "Step Three description",
+        children: <div className='test-step' style={{
+          backgroundColor: "#80008090",
+        }}>
+          <h3>Step Three Content</h3>
+        </div>
       }
-    ]}>
-      <MyMultiStepper />
+    ]}
+    >
+      <ReactMultiStepper />
     </MultiStepperProvider>
   );
 }
@@ -68,44 +83,17 @@ function App() {
 ### 2. Create your stepper component
 
 ```javascript
-function MyMultiStepper() {
-  const { handleNextStep, setStepStatus } = useMultiStepper();
+function ReactMultiStepper() {
 
-  const validateAndProceed = async () => {
-    try {
-      setStepStatus("completed");
-      handleNextStep();
-    } catch (error) {
-    }
-  };
+  const { handleNextStep, setStepStatus } = useMultiStepper()
 
-  return <MultiStepper onClickNext={validateAndProceed} />;
+  const validateStepContent = () => {
+    setStepStatus("completed")
+    handleNextStep()
+  }
+  return <MultiStepper onClickNext={validateStepContent} />
 }
 ```
-
-
-### Custom Step Content
-
-```javascript
-const steppers = [
-  {
-    id: 1,
-    title: "Step One",
-    description: "Step one description",
-    children: (
-      <div className="custom-step">
-        <h3>Custom Step Content</h3>
-        <form>
-          <input type="text" placeholder="Enter data..." />
-        </form>
-      </div>
-    )
-  },
-  // ... more steps
-];
-```
-
----
 
 ## 🧩 API Reference
 
