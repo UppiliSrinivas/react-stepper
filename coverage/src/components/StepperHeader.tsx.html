@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
@@ -98,72 +98,81 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Fragment } from 'react';
 import { useMultiStepper } from '../hooks';
 import { Step } from './StepItem';
 &nbsp;
 &nbsp;
 export const StepperHeader: React.FC = () =&gt; {
-  const { steps } = useMultiStepper()
-&nbsp;
+  const { steps, updateSteps } = useMultiStepper()
+  const onClickStep = <span class="fstat-no" title="function not covered" >(index: number) =&gt; updateSteps(index);</span>
   if (!steps.length) return &lt;Fragment /&gt;
   return (
     &lt;div className='app-container'&gt;
       &lt;ol className='stepper-header'&gt;
         {
-          steps.map((step, i) =&gt; (
-            &lt;div
-              key={i}
-              className={`step-item ${step.active &amp;&amp; "active"} ${step.completed<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp; "complete"</span>
-                } `}
-            &gt;
+          steps.map((step, i) =&gt; {
+            const isActive = Boolean(step.active);
+            const isComplete = Boolean(step.completed);
 &nbsp;
-              &lt;Step index={i + 1} step={step} /&gt;
-&nbsp;
-              &lt;div className="step-text"&gt;
-                {step.title &amp;&amp; &lt;h3 className="step-title"&gt;{step.title}&lt;/h3&gt;}
-                {step.description &amp;&amp; &lt;h3 className="step-description"&gt;{step.description}&lt;/h3&gt;}
+            return (
+              &lt;div
+                key={step.id<span class="branch-0 cbranch-no" title="branch not covered" > ?? i}</span>
+                onClick={
+<span class="fstat-no" title="function not covered" >                  () =&gt; onClickStep(i)</span>
+                }
+                className={`step-item ${isActive ? 'active' : ''} ${isComplete ? 'complete' : ''}`}
+              &gt;
+                &lt;Step index={i + 1} step={step} /&gt;
+                &lt;div className="step-text"&gt;
+                  {step.title &amp;&amp; &lt;h3 className="step-title"&gt;{step.title}&lt;/h3&gt;}
+                  {step.description &amp;&amp; &lt;h3 className="step-description"&gt;{step.description}&lt;/h3&gt;}
+                &lt;/div&gt;
               &lt;/div&gt;
-&nbsp;
-            &lt;/div&gt;
-          ))
+            )
+          })
         }
-&nbsp;
       &lt;/ol&gt;
     &lt;/div&gt;
   );
@@ -175,7 +184,7 @@ export const StepperHeader: React.FC = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-17T08:15:33.490Z
+                at 2025-11-15T11:53:25.747Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -13,26 +13,11 @@ export const Step: React.FC<StepItemType> = ({
   const { steps, options } = useMultiStepper()
   if (!steps.length) return <Fragment />
 
-  if (step.loading) return <div className='step step-active'>
-    <div className="spinner" role="status" aria-label="Loading"></div>
-  </div>
-
-  if (step.error) return <div className='step step-error'>
-    {
-      step.icon ? step.icon : options?.errorIcon ??
-        <span className='text-white'>&#x2717;</span>
-    }
-  </div>
-
   if (step.completed) return <div className='step step-complete'>
     {
       step.icon ? step.icon : options?.completedIcon ??
         <span className='text-white'>&#x2713;</span>
     }
-  </div>
-
-  if (step.finshed) return <div className='step step-complete'>
-    {step.icon}
   </div>
 
   if (step.active) return <div className='step step-active'>
