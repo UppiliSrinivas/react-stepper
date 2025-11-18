@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect, useEffectEvent, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { MultiStepper } from '../src/MultiStepper'
 import { MultiStepperProvider } from '../src/contexts'
@@ -14,6 +14,20 @@ export function ReactMultiStepper() {
     handleNextStep()
   }
   return <MultiStepper onClickNext={validateStepContent} />
+}
+
+export function TestUseEffectEvent() {
+  const [count, setCount] = useState(0);
+  const logCount=useEffectEvent((cou:number)=>{
+    console.log("Count value => ",cou);
+  })
+  useEffect(()=>{
+    logCount(count)
+  },[count])
+  return <div>
+    <h1>{count}</h1>
+    <button type="button" onClick={() => setCount(prev => prev + 1)}>Increase</button>
+  </div>
 }
 
 createRoot(document.getElementById('root')!).render(
@@ -53,5 +67,6 @@ createRoot(document.getElementById('root')!).render(
     >
       <ReactMultiStepper />
     </MultiStepperProvider>
+    {/* <TestUseEffectEvent /> */}
   </StrictMode>,
 )

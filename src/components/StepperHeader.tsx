@@ -4,8 +4,8 @@ import { Step } from './StepItem';
 
 
 export const StepperHeader: React.FC = () => {
-  const { steps } = useMultiStepper()
-
+  const { steps, updateSteps } = useMultiStepper()
+  const onClickStep = (index: number) => updateSteps(index);
   if (!steps.length) return <Fragment />
   return (
     <div className='app-container'>
@@ -18,6 +18,9 @@ export const StepperHeader: React.FC = () => {
             return (
               <div
                 key={step.id ?? i}
+                onClick={
+                  () => onClickStep(i)
+                }
                 className={`step-item ${isActive ? 'active' : ''} ${isComplete ? 'complete' : ''}`}
               >
                 <Step index={i + 1} step={step} />

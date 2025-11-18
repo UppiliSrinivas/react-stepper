@@ -5,9 +5,6 @@ type StepType = {
     description?: string;
     icon?: ReactNode;
     active?: boolean;
-    finshed?: boolean;
-    error?: boolean;
-    loading?: boolean;
     completed?: boolean;
     children?: ReactNode
 }
@@ -19,16 +16,11 @@ type StepStyleType = {
     activeBgColor?: string;
     completedBgColor?: string;
     completedTextColor?: string;
-    errorBgColor?: string;
-    errorTextColor?: string;
-    loadingBgColor?: string;
 }
 
 type OptionsType = {
     completedIcon?: ReactNode;
     activeIcon?: ReactNode;
-    errorIcon?: ReactNode;
-    loadingIcon?: ReactNode;
 }
 
 type MultiStepperType = {

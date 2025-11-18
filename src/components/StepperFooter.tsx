@@ -1,49 +1,44 @@
-import React, { useMemo } from 'react';
+import React, { useCallback } from 'react';
 import { useMultiStepper } from '../hooks';
 
 type StepperFooterProps = {
   onClickNext: () => void
 }
 
-export const StepperFooter: React.FC<StepperFooterProps> = ({ onClickNext }) => {
+export const StepperFooter: React.FC<StepperFooterProps> = React.memo(({ onClickNext }) => {
   const { handlePrevStep, currentStep, steps } = useMultiStepper();
-  const isFinished = currentStep === steps.length - 1;
+  const isLastStep = currentStep === steps.length - 1;
+  const isPrevDisabled = currentStep === 0;
 
-  const handleNext = () => {
-
+  const handleNext = useCallback(() => {
     if (!steps[currentStep].completed) {
-      // handleNextStep()
       onClickNext()
     }
+  }, [steps, currentStep, onClickNext])
 
-  }
+  const handlePrev = useCallback(() => {
+    if (!isPrevDisabled) handlePrevStep()
+  }, [isPrevDisabled, handlePrevStep])
 
-  const buttonClass = useMemo(() => ({
-    button: 'stepper-button',
-    fill: 'stepper-button-fill'
-  }), []);
+  return <div className="stepper-footer">
+    <button
+      type="button"
+      className={`stepper-button 
+        ${isPrevDisabled ? 'stepper-button-disbled' : ''}`}
+      onClick={handlePrev}
+      disabled={currentStep < 0}
+    >
+      Prev
+    </button>
 
-  return (
-    <div className="stepper-footer">
-      <button
-        type="button"
-        className={buttonClass.button}
-        onClick={handlePrevStep}
-        disabled={currentStep < 0}
-        style={{
-          cursor: currentStep <= 0 ? 'not-allowed' : 'pointer'
-        }}
-      >
-        Prev
-      </button>
-
-      <button
-        type="button"
-        className={`${isFinished ? `${buttonClass.button} ${buttonClass.fill}` : buttonClass.button}`}
-        onClick={handleNext}
-      >
-        {isFinished ? 'Finish' : 'Next'}
-      </button>
-    </div>
-  );
-};
+    <button
+      type="button"
+      className={isLastStep ?
+        'stepper-button stepper-button-fill' :
+        'stepper-button'}
+      onClick={handleNext}
+    >
+      {isLastStep ? 'Finish' : 'Next'}
+    </button>
+  </div>
+})
