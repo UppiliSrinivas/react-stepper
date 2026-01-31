@@ -1,29 +1,17 @@
+import path from "path";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
-import * as path from "path";
-import { dependencies } from "./package.json";
-import { libInjectCss } from "vite-plugin-lib-inject-css";
-export default defineConfig({
-  plugins: [
-    react(),
-    libInjectCss(),
-    dts({
-      insertTypesEntry: true,
-    }),
-  ],
 
-  resolve: {
-    alias: [{ find: "@", replacement: path.resolve(__dirname, "./src") }],
-  },
+export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "multi-stepper",
-      fileName: (format) => `multi-stepper.${format}.js`,
+      name: "iteratex-component-library",
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: Object.keys(dependencies),
+      external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",
@@ -31,9 +19,16 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: false,
-    sourcemap: false,
+    cssCodeSplit: true,
+    sourcemap: true,
     emptyOutDir: true,
-    minify: "esbuild",
   },
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true,
+      outDir: "dist/types",
+    }),
+  ],
 });
