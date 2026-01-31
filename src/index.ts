@@ -1,10 +1,13 @@
 import "./index.css";
-export { MultiStepperProvider } from "./contexts/index";
-export { MultiStepper } from "./MultiStepper";
+
+export { MultiStepper } from "./components/MultiStepper";
+export { MultiStepperProvider } from "./contexts";
+export { useMultiStepper } from "./hooks";
+
+/* ✅ IMPORTANT: re-export ALL public types */
 export type {
-  MultiStepperProviderType,
-  MultiStepperType,
-  StepStyleType,
   StepType,
-} from "./types/index";
-export { useMultiStepper } from "./hooks/index";
+  MultiStepperType,
+  MultiStepperProviderType,
+  StepStyleType,
+} from "./types";

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import { StepperContent } from './components/StepperContent';
-import { StepperFooter } from './components/StepperFooter';
-import { StepperHeader } from './components/StepperHeader';
+import { StepperContent } from './StepperContent';
+import { StepperFooter } from './StepperFooter';
+import { StepperHeader } from './StepperHeader';
 
 type StepperProps = {
   onClickNext: () => void
