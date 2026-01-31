@@ -2,7 +2,7 @@ import {
   MultiStepper,
   MultiStepperProvider,
   useMultiStepper,
-} from "react-multi-stepper";
+} from "reactjs-multi-stepper";
 
 function App() {
   // Define reusable base style
