@@ -22,9 +22,9 @@ It allows you to create step-based workflows such as onboarding, multi-step form
 ## 📦 Installation
 
 ```bash
-npm install react-multi-stepper
+npm install reactjs-multi-stepper
 # or
-yarn add react-multi-stepper
+yarn add reactjs-multi-stepper
 ```
 
 ---
