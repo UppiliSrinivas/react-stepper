@@ -1,9 +1,8 @@
+import {MultiStepper} from "./components/MultiStepper";
 import {
-  MultiStepper,
   MultiStepperProvider,
   useMultiStepper,
-} from "react-multi-stepper";
-
+} from "./contexts/index";
 function App() {
   // Define reusable base style
   const baseContentStyle = {

@@ -5,7 +5,7 @@ It allows you to create step-based workflows such as onboarding, multi-step form
 
 ## 🎬 Demo
 
-![React Multi Stepper Demo](https://github.com/UppiliSrinivas/react-stepper/blob/main/src/assets/react-multi-stepper-demo.gif)
+![Image](https://github.com/user-attachments/assets/b80b151d-7b6f-4233-aa90-7672279d8049)
 
 ---
 
@@ -22,77 +22,95 @@ It allows you to create step-based workflows such as onboarding, multi-step form
 ## 📦 Installation
 
 ```bash
-npm install react-multi-stepper
+npm install reactjs-multi-stepper
 # or
-yarn add react-multi-stepper
+yarn add reactjs-multi-stepper
 ```
 
 ---
 
 ## 🔨 Basic Usage
 
-### 1. Wrap your app with MultiStepperProvider
-
 ```javascript
-import React from "react";
-import { MultiStepperProvider, MultiStepper, useMultiStepper } from "react-multi-stepper";
-
-
+import {
+  MultiStepper,
+  MultiStepperProvider,
+  useMultiStepper,
+} from "reactjs-multi-stepper";
 
 function App() {
+  // Define reusable base style
+  const baseContentStyle = {
+    width: "60%",
+    height: "10vh",
+    marginBlock: "5vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "0.5vw",
+  };
+
+  const Component = () => {
+    const { handleNextStep } = useMultiStepper();
+    return <MultiStepper onClickNext={handleNextStep} />;
+  };
+
   return (
-    <MultiStepperProvider steppers={[
-      {
-        id: 1,
-        title: "Step one",
-        description: "Step one description",
-        children: <div className='test-step' style={{
-          backgroundColor: "#0000FF90",
-        }}>
-          <h3>Step One Content</h3>
-        </div>
-      },
-      {
-        id: 2,
-        title: "Step Two",
-        description: "Step Two description",
-        children: <div className='test-step' style={{
-          backgroundColor: "#FF000090",
-        }}>
-          <h3>Step Two Content</h3>
-        </div>
-      },
-      {
-        id: 3,
-        title: "Step Three",
-        description: "Step Three description",
-        children: <div className='test-step' style={{
-          backgroundColor: "#80008090",
-        }}>
-          <h3>Step Three Content</h3>
-        </div>
-      }
-    ]}
+    <MultiStepperProvider
+      steppers={[
+        {
+          active: true,
+          title: "Step One",
+          children: (
+            <div
+              style={{
+                ...baseContentStyle,
+                backgroundColor: "rgba(255, 0, 0, 0.5)",
+              }}
+            >
+              Step One Content
+            </div>
+          ),
+        },
+        {
+          id: 2,
+          active: false,
+          title: "Step Two",
+          children: (
+            <div
+              style={{
+                ...baseContentStyle,
+                backgroundColor: "rgba(0, 0, 255, 0.5)",
+              }}
+            >
+              Step Two Content
+            </div>
+          ),
+        },
+        {
+          id: 3,
+          active: false,
+          title: "Step Three",
+          children: (
+            <div
+              style={{
+                ...baseContentStyle,
+                backgroundColor: "rgba(0, 128, 0, 0.5)",
+              }}
+            >
+              Step Three Content
+            </div>
+          ),
+        },
+      ]}
     >
-      <ReactMultiStepper />
+      <Component />
     </MultiStepperProvider>
   );
 }
-```
 
-### 2. Create your stepper component
+export default App;
 
-```javascript
-function ReactMultiStepper() {
-
-  const { handleNextStep, setStepStatus } = useMultiStepper()
-
-  const validateStepContent = () => {
-    setStepStatus("completed")
-    handleNextStep()
-  }
-  return <MultiStepper onClickNext={validateStepContent} />
-}
 ```
 
 ## 🧩 API Reference
