@@ -2,6 +2,7 @@ import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   build: {
@@ -30,5 +31,6 @@ export default defineConfig({
       rollupTypes: true,
       outDir: "dist/types",
     }),
+    visualizer({ open: true, gzipSize: true, brotliSize: true }),
   ],
 });
