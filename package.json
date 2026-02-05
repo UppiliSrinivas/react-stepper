@@ -1,6 +1,6 @@
 {
   "name": "reactjs-multi-stepper",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "type": "module",
   "main": "./dist/reactjs-multi-stepper.es.js",
   "module": "./dist/reactjs-multi-stepper.es.js",
