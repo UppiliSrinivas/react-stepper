@@ -5,7 +5,6 @@
 // } from "./contexts/index";
 
 import {
-  MultiStepper,
   MultiStepperProvider,
   useMultiStepper,
 } from "reactjs-multi-stepper";
