@@ -10,6 +10,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "iteratex-component-library",
       fileName: (format) => `index.${format}.js`,
+      formats: ["es"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -21,7 +22,7 @@ export default defineConfig({
       },
     },
     cssCodeSplit: true,
-    sourcemap: true,
+    sourcemap: false,
     emptyOutDir: true,
   },
   plugins: [
@@ -30,6 +31,9 @@ export default defineConfig({
       insertTypesEntry: true,
       rollupTypes: true,
       outDir: "dist/types",
+      compilerOptions: {
+        declarationMap: false,
+      },
     }),
     visualizer({ open: true, gzipSize: true, brotliSize: true }),
   ],

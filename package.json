@@ -2,6 +2,8 @@
   "name": "reactjs-multi-stepper",
   "version": "1.3.6",
   "type": "module",
+  "main": "./dist/reactjs-multi-stepper.es.js",
+  "module": "./dist/reactjs-multi-stepper.es.js",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -29,7 +31,9 @@
     "typecheck": "tsc --noEmit",
     "preview": "vite preview"
   },
-  "dependencies": {},
+  "dependencies": {
+    "reactjs-multi-stepper": "file:reactjs-multi-stepper-1.3.6.tgz"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^6.9.1",
