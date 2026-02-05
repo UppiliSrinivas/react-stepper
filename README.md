@@ -32,11 +32,9 @@ yarn add reactjs-multi-stepper
 ## 🔨 Basic Usage
 
 ```javascript
-import {
-  MultiStepper,
-  MultiStepperProvider,
-  useMultiStepper,
-} from "reactjs-multi-stepper";
+import { MultiStepper } from "./components/MultiStepper";
+import { MultiStepperProvider } from "./contexts/index";
+import { useMultiStepper } from "./hooks";
 
 function App() {
   // Define reusable base style
@@ -110,7 +108,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ## 🧩 API Reference

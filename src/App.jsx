@@ -1,5 +1,6 @@
 import { MultiStepper } from "./components/MultiStepper";
-import { MultiStepperProvider, useMultiStepper } from "./contexts/index";
+import { MultiStepperProvider } from "./contexts/index";
+import { useMultiStepper } from "./hooks";
 
 function App() {
   // Define reusable base style
