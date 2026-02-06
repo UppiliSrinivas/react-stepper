@@ -1,6 +1,6 @@
 {
   "name": "reactjs-multi-stepper",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "type": "module",
   "main": "./dist/reactjs-multi-stepper.es.js",
   "module": "./dist/reactjs-multi-stepper.es.js",
@@ -54,7 +54,7 @@
     "vitest": "^4.0.18"
   },
   "repository": {
-    "url": "https://github.com/UppiliSrinivas/react-stepper/tree/multi-stepper"
+    "url": "https://github.com/UppiliSrinivas/react-stepper"
   },
   "license": "ISC",
   "peerDependencies": {
