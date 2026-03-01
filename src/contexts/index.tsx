@@ -16,11 +16,10 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
     }, [steppers, steppers.length])
 
     const updateSteps = useCallback((newStep: number) => {
+        if (newStep < 0 || newStep > steps.length - 1) return
+
         setSteps((prev) => {
             const updated = [...prev]
-
-            // if more than length of steps array return steps array as its
-            if (newStep > prev.length - 1) return prev
 
             // deactivate current step
             if (updated[currentStep])
@@ -43,12 +42,15 @@ export const MultiStepperProvider: React.FC<MultiStepperProviderType> = ({ child
             return updated
         })
         setCurrentStep(newStep)
-    }, [currentStep])
+    }, [currentStep, steps.length])
 
     const handleNextStep = useCallback(() => {
+        if (!steps.length) return
+
         if (currentStep < steps.length - 1) updateSteps(currentStep + 1)
         else setSteps((prev) => {
             const updated = [...prev]
+            if (!updated[currentStep]) return prev
             updated[currentStep] = { ...updated[currentStep], completed: true }
             return updated
         })
