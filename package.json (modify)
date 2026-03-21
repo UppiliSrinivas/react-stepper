@@ -1,0 +1,39 @@
+{
+  "name": "react-stepper",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "your-testing-framework",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.0",
+    "eslint": "^7.0.0",
+    "prettier": "^2.0.0",
+    "your-testing-framework": "^x.x.x"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.jsx": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.tsx": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

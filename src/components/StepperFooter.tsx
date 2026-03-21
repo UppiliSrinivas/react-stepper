@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useMultiStepper } from '../hooks';
 
 type StepperFooterProps = {
@@ -10,15 +10,15 @@ export const StepperFooter: React.FC<StepperFooterProps> = React.memo(({ onClick
   const isLastStep = currentStep === steps.length - 1;
   const isPrevDisabled = currentStep === 0;
 
-  const handleNext = useCallback(() => {
+  const handleNext = () => {
     if (!steps[currentStep].completed) {
       onClickNext()
     }
-  }, [steps, currentStep, onClickNext])
+  }
 
-  const handlePrev = useCallback(() => {
+  const handlePrev = () => {
     if (!isPrevDisabled) handlePrevStep()
-  }, [isPrevDisabled, handlePrevStep])
+  }
 
   return <div className="stepper-footer">
     <button

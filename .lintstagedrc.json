@@ -1,0 +1,24 @@
+{
+  "*.js": [
+    "eslint --fix",
+    "jest --bail --findRelatedTests"
+  ],
+  "*.jsx": [
+    "eslint --fix",
+    "jest --bail --findRelatedTests"
+  ],
+  "*.ts": [
+    "eslint --fix",
+    "jest --bail --findRelatedTests"
+  ],
+  "*.tsx": [
+    "eslint --fix",
+    "jest --bail --findRelatedTests"
+  ],
+  "*.css": [
+    "stylelint --fix"
+  ],
+  "*.json": [
+    "prettier --write"
+  ]
+}
