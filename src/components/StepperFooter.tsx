@@ -1,44 +1,48 @@
-import React from 'react';
-import { useMultiStepper } from '../hooks';
+import React from 'react'
+import { useMultiStepper } from '../hooks'
 
 type StepperFooterProps = {
   onClickNext: () => void
 }
 
-export const StepperFooter: React.FC<StepperFooterProps> = React.memo(({ onClickNext }) => {
-  const { handlePrevStep, currentStep, steps } = useMultiStepper();
-  const isLastStep = currentStep === steps.length - 1;
-  const isPrevDisabled = currentStep === 0;
+export const StepperFooter: React.FC<StepperFooterProps> = React.memo(
+  ({ onClickNext }) => {
+    const { handlePrevStep, currentStep, steps } = useMultiStepper()
+    const isLastStep = currentStep === steps.length - 1
+    const isPrevDisabled = currentStep === 0
 
-  const handleNext = () => {
-    if (!steps[currentStep].completed) {
-      onClickNext()
+    const handleNext = () => {
+      if (!steps[currentStep].completed) {
+        onClickNext()
+      }
     }
-  }
 
-  const handlePrev = () => {
-    if (!isPrevDisabled) handlePrevStep()
-  }
+    const handlePrev = () => {
+      if (!isPrevDisabled) handlePrevStep()
+    }
 
-  return <div className="stepper-footer">
-    <button
-      type="button"
-      className={`stepper-button 
+    return (
+      <div className="stepper-footer">
+        <button
+          type="button"
+          className={`stepper-button 
         ${isPrevDisabled ? 'stepper-button-disbled' : ''}`}
-      onClick={handlePrev}
-      disabled={currentStep < 0}
-    >
-      Prev
-    </button>
+          onClick={handlePrev}
+          disabled={currentStep < 0}
+        >
+          Prev
+        </button>
 
-    <button
-      type="button"
-      className={isLastStep ?
-        'stepper-button stepper-button-fill' :
-        'stepper-button'}
-      onClick={handleNext}
-    >
-      {isLastStep ? 'Finish' : 'Next'}
-    </button>
-  </div>
-})
+        <button
+          type="button"
+          className={
+            isLastStep ? 'stepper-button stepper-button-fill' : 'stepper-button'
+          }
+          onClick={handleNext}
+        >
+          {isLastStep ? 'Finish' : 'Next'}
+        </button>
+      </div>
+    )
+  }
+)
